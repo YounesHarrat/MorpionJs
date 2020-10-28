@@ -1,12 +1,6 @@
-//get the canvas
-/*
-let cvs = document.querySelector('canvas#game')
-let ctx = cvs.getContext('2d')
-*/
-
 
 //my gameboard wil be an array 3x3 
-let gameboards = []
+
 let gameboard = [];
 let gameSize = 3;
 
@@ -22,24 +16,13 @@ let whoIsPlaying = document.querySelector('p#player')
 let playerXbutton = document.querySelector('#playerX')
 let playerObutton = document.querySelector('#playerO')
 
-
 let gagne = false;
 
 const init = ()=>{
-    for(let i=0; i<9 ; i++){
-        for(let i =0 ; i< gameSize *3 ; i++){          
-            gameboard[i]=' ';   
-        }
-        gameboards.push(gameboard)
-    }
-    console.table(gameboards)     
-
+    for(let i =0 ; i< gameSize *3 ; i++){          
+        gameboard[i]=' ';   
+    }   
     fill()
-}
-
-const addGameBoard = () =>{
-    let newGB = gameboard
-    gameboards.push()
 }
 
 const fill = () => {
@@ -62,7 +45,6 @@ const playMove = ()=> {
 const verify = () => {
     //verifier la case central
     if(cells[4].innerHTML != " "){
-        // si la ligne du milieu OR la colonne du milieu
         if( 
             ( cells[3].innerHTML === cells[4].innerHTML && cells[4].innerHTML === cells[5].innerHTML )      //ligne central
             || ( cells[1].innerHTML === cells[4].innerHTML && cells[4].innerHTML === cells[7].innerHTML )   //colonne central
@@ -87,8 +69,7 @@ const verify = () => {
         ){
             resetGame()
         }
-    }
-    
+    }    
     return gagne;
 }
 
@@ -99,25 +80,16 @@ const resetGame = () => {
 }
 
 const fillIn = (event) =>{
-    console.log(event.target)
     event.target.innerHTML= playMove();
     whoIsPlaying.innerHTML = pXIsPlaying ? "Current Player is : "+players[0] : "Current Player is : "+players[1] ;
     verify() 
 }
 
-cells.forEach( elem => {
-    elem.addEventListener('click',fillIn)
-})
-
+cells.forEach( cell => { cell.addEventListener('click',fillIn) })
 playerXbutton.addEventListener('click', ()=>{  pXIsPlaying=true; fill()})
-
 playerObutton.addEventListener('click', ()=>{  pXIsPlaying=false;fill()})
 
 init()
-
-
-
-
-// two players : 'O' and 'X' 
+ 
 
 
