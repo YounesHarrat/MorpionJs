@@ -12,7 +12,11 @@ header{
 }
 
 main{
-    margin:auto;
+    display: flex;
+}
+
+section{
+    margin:5vh 5vw auto 10vw;
     display: flex;
     flex-direction: row;
 }
@@ -23,7 +27,7 @@ main{
 }
 
 #Selector{
-    margin: auto 10vw auto 25vw;
+    margin: auto 5vw auto 15vw;
 }
 
 #player{
@@ -43,6 +47,10 @@ table#game button{
     font-display: bold;
     background-color: darkseagreen;
     box-shadow: rgb(1, 79, 82) 4px 3px 5px ;
+}
+
+aside{
+    text-align: center;
 }
 
 aside button{
